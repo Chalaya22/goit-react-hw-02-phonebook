@@ -13,32 +13,49 @@ class ContactForm extends Component {
     this.setState({ [name]: value });
     // this.setState({[event.currentTarget.name]: event.currentTarget.value})
   };
+  reset = () => {
+    this.setState({ name: ' ', number: ' ' });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const name = event.currentTarget.elements.name.value;
+    const number = event.currentTarget.elements.number.value;
+    const contactList = {
+      name,
+      number,
+    };
+    this.props.handleAddContact(contactList);
+    this.reset();
+  };
 
   render() {
     return (
-      <form className={css.form}>
-        <label htmlFor="">
-          Name
+      <form onSubmit={this.handleSubmit} className={css.form}>
+        <label>
+          <p className={css.labelText}>Name</p>
           <input
             type="text"
             name="name"
             value={this.state.name}
             onChange={this.handleInputChange}
-            required
+            placeholder="Enter "
+            // pattern="^[a-zA-Zа-яА-Я]+(([' \\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           />
         </label>
-        <label htmlFor="">
-          Number
+        <label>
+          <p className={css.labelText}>Number</p>
           <input
             type="tel"
             name="number"
             value={this.state.number}
             onChange={this.handleInputChange}
+            // pattern="\\+?\\d{1,4}?[ .\\-\\s]?\\(?\\d{1,3}?\\)?[ .\\-\\s]?\\d{1,4}[ .\\-\\s]?\\d{1,4}[ .\\-\\s]?\\d{1,9}"
             required
           />
         </label>
 
-        <button type="button">Add contact</button>
+        <button type="submit">Add contact</button>
       </form>
     );
   }

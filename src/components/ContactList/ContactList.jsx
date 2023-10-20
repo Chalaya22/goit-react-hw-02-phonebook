@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import css from './ContactList.module.css';
 import ContactElements from '../ContactElements/ContactElements';
-const ContactList = () => {
-  return (
-    <li>
-      <ContactElements />
-    </li>
-  );
+const ContactList = ({ filteredContacts, onDelete }) => {
+  return <li></li>;
 };
 export default ContactList;

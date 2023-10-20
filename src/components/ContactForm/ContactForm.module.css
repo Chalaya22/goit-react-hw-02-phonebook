@@ -5,5 +5,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  gap: 20px;
   color: blue;
+}
+.labelText {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 18px;
 }
