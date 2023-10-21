@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import css from './ContactElements.module.css';
-const ContactElements = ({ id, name, number, onDelete }) => {
+const ContactElements = ({ id, name, number }) => {
   return (
-    <div>
-      {/* <p>{name}:</p>
-      <p>{number}</p>
-      <button type="button" onClick={onDelete(id)}>
-        Delay
-      </button> */}
+    <div key={id}>
+      <span> {name}:</span>
+      <span> {number}</span>
+      <button type="button">Delay</button>
     </div>
   );
 };

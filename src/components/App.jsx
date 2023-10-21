@@ -20,11 +20,13 @@ export class App extends Component {
       alert(`'${contactList.name}' is already in contact`);
       return;
     }
-    const filtredContact = {
+    const newContact = {
       ...contactList,
       id: nanoid(),
     };
-    this.setState({ contacts: [...this.state.contacts, filtredContact] });
+    this.setState({
+      contacts: [...this.state.contacts, newContact],
+    });
   };
   render() {
     return (
@@ -35,9 +37,9 @@ export class App extends Component {
         <h2>Contacts</h2>
         <Filter />
         <ContactList
-        // filter={filter}
-        // onDelete={this.onDeleteHandler}
-        // filterContacts={this.onFilterContacts}
+          filtredContacts={this.state.contacts}
+          // onDelete={this.onDeleteHandler}
+          // filterContacts={this.onFilterContacts}
         />
       </div>
     );
