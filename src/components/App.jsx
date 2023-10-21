@@ -13,6 +13,8 @@ export class App extends Component {
     ],
     filter: '',
   };
+
+  //add
   handleAddContact = contactList => {
     if (
       this.state.contacts.some(contact => contact.name === contactList.name)
@@ -28,20 +30,51 @@ export class App extends Component {
       contacts: [...this.state.contacts, newContact],
     });
   };
+
+  //delete
+  onDeleteHandler = id => {
+    const filteredContacts = this.state.contacts.filter(
+      contact => contact.id !== id
+    );
+    this.setState(prevState => {
+      return { ...prevState, contacts: [...filteredContacts] };
+    });
+  };
+
+  //filter
+  onFilter = event => {
+    this.setState({
+      filter: event.target.value,
+    });
+  };
+  onFilterContacts = () => {
+    const { contacts, filter } = this.state;
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+  };
+
   render() {
+    const { filter } = this.state;
+    const filteredContacts = this.onFilterContacts();
+
     return (
-      <div>
+      <section>
         <h1>Phonebook</h1>
         <ContactForm handleAddContact={this.handleAddContact} />
 
         <h2>Contacts</h2>
-        <Filter />
-        <ContactList
-          filtredContacts={this.state.contacts}
-          // onDelete={this.onDeleteHandler}
-          // filterContacts={this.onFilterContacts}
-        />
-      </div>
+        {this.state.contacts.length > 1 && (
+          <Filter onFilter={this.onFilter} filter={filter} />
+        )}
+
+        {this.state.contacts.length !== 0 && (
+          <ContactList
+            filtredContacts={filteredContacts}
+            onDelete={this.onDeleteHandler}
+          />
+        )}
+      </section>
     );
   }
 }
