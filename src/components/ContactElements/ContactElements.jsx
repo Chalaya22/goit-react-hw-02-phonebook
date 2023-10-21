@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import css from './ContactElements.module.css';
 const ContactElements = ({ id, name, number, onDelete }) => {
   return (
-    <li key={id}>
-      <span> {name}:</span>
-      <span> {number}</span>
-      <button type="button" onClick={() => onDelete(id)}>
+    <li key={id} className={css.contactElements}>
+      <span className={css.itemName}> {name}:</span>
+      <span className={css.itemNumber}> {number}</span>
+      <button
+        className={css.itemButton}
+        type="button"
+        onClick={() => onDelete(id)}
+      >
         Delay
       </button>
     </li>

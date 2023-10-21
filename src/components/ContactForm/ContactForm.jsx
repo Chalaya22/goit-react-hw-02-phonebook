@@ -35,27 +35,30 @@ class ContactForm extends Component {
         <label>
           <p className={css.labelText}>Name</p>
           <input
+            required
+            className={css.imputForm}
             type="text"
             name="name"
             value={this.state.name}
             onChange={this.handleInputChange}
-            placeholder="Enter "
-            pattern="^[a-zA-Zа-яА-Я]+(([' \\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            placeholder="Enter username: "
           />
         </label>
         <label>
           <p className={css.labelText}>Number</p>
           <input
+            required
             type="tel"
             name="number"
             value={this.state.number}
             onChange={this.handleInputChange}
-            pattern="\\+?\\d{1,4}?[ .\\-\\s]?\\(?\\d{1,3}?\\)?[ .\\-\\s]?\\d{1,4}[ .\\-\\s]?\\d{1,4}[ .\\-\\s]?\\d{1,9}"
-            required
+            placeholder="Enter number tel: "
           />
         </label>
 
-        <button type="submit">Add contact</button>
+        <button className={css.buttonForm} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }

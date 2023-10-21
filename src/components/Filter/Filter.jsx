@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import css from './Filter.module.css';
 const Filter = ({ filter, onFilter }) => {
   return (
-    <div>
+    <div className={css.filter}>
       <label htmlFor="filter">
-        <p>Find contact by name</p>
+        <p className={css.filterTitle}>Find contact by name</p>
         <input
           type="text"
           name="filter"
