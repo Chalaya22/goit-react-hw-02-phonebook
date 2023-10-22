@@ -14,6 +14,7 @@ code {
     monospace;
 }
 .titlePhone {
+  font-weight: 500;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -21,6 +22,7 @@ code {
   color: rgb(226, 43, 153);
 }
 .titleContact {
+  font-weight: 500;
   display: flex;
   justify-content: center;
   text-align: center;

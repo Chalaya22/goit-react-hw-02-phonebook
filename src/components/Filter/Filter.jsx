@@ -6,6 +6,7 @@ const Filter = ({ filter, onFilter }) => {
       <label htmlFor="filter">
         <p className={css.filterTitle}>Find contact by name</p>
         <input
+          className={css.filterImput}
           type="text"
           name="filter"
           id="filter"

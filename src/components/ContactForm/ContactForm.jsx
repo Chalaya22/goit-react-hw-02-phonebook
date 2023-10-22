@@ -48,6 +48,7 @@ class ContactForm extends Component {
         <label>
           <p className={css.labelText}>Number</p>
           <input
+            className={css.imputForm}
             type="tel"
             name="number"
             value={this.state.number}
