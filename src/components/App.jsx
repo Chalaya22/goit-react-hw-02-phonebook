@@ -60,10 +60,10 @@ export class App extends Component {
 
     return (
       <section>
-        <h1>Phonebook</h1>
+        <h1 className="titlePhone">Phonebook</h1>
         <ContactForm handleAddContact={this.handleAddContact} />
 
-        <h2>Contacts</h2>
+        <h2 className="titleContact">Contacts</h2>
         {this.state.contacts.length > 1 && (
           <Filter onFilter={this.onFilter} filter={filter} />
         )}

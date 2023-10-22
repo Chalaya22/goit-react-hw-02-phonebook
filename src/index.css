@@ -13,3 +13,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.titlePhone {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  color: rgb(226, 43, 153);
+}
+.titleContact {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  color: rgb(226, 43, 153);
+}
