@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import css from './Filter.module.css';
 const Filter = ({ filter, onFilter }) => {
   return (

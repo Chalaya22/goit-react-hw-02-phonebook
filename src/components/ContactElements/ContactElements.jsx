@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import css from './ContactElements.module.css';
 const ContactElements = ({ id, name, number, onDelete }) => {
   return (
