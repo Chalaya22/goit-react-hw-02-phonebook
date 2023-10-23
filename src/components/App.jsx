@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
+
 export class App extends Component {
   state = {
     contacts: [
@@ -26,18 +27,17 @@ export class App extends Component {
       ...contactList,
       id: nanoid(),
     };
-    this.setState({
-      contacts: [...this.state.contacts, newContact],
-    });
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, newContact],
+    }));
   };
 
   //delete
   onDeleteHandler = id => {
-    const filteredContacts = this.state.contacts.filter(
-      contact => contact.id !== id
-    );
     this.setState(prevState => {
-      return { ...prevState, contacts: [...filteredContacts] };
+      return {
+        contacts: prevState.contacts.filter(contact => contact.id !== id),
+      };
     });
   };
 
