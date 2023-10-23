@@ -18,13 +18,7 @@ class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const name = event.currentTarget.elements.name.value;
-    const number = event.currentTarget.elements.number.value;
-    const contactList = {
-      name,
-      number,
-    };
-    this.props.handleAddContact(contactList);
+    this.props.handleAddContact(this.state);
     this.reset();
   };
 
